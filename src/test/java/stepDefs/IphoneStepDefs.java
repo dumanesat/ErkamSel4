@@ -126,8 +126,11 @@ String carrier1;
         List<WebElement> newUnlocked = searchPage.phoneListCarrier(carrier);
         //System.out.println("newUnlocked.size() = " + newUnlocked.size());
         for (int i = 0; i < newUnlocked.size(); i++) {
+            BrowserUtils.waitFor(3);
+
             newUnlocked = searchPage.phoneListCarrier(carrier);
            // BrowserUtils.waitForVisibility(newUnlocked.get(i),10);
+
            actions.moveToElement( newUnlocked.get(i)).click().perform();
 
            // Thread.sleep(500);
@@ -225,7 +228,7 @@ String carrier1;
     }
 
     @When("User inconsistent prices according to condition.. {string}")
-    public void user_inconsistent_prices_according_to_condition(String carrier) {
+    public void user_inconsistent_prices_according_to_condition(String carrier) throws InterruptedException {
         List<Double> fairPriceList = new ArrayList<>();
         List<Double> goodPriceList = new ArrayList<>();
         List<Double> excellentPriceList = new ArrayList<>();
@@ -317,6 +320,7 @@ String carrier1;
         System.out.println("The cheapest fair = " + Collections.min(fairPriceList));
         System.out.println("The cheapest good " + Collections.min(goodPriceList));
         System.out.println("The cheapest excellent " + Collections.min(excellentPriceList));
+        Thread.sleep(10000);
     }
 
 

@@ -16,7 +16,7 @@ public class MainPage {
     @FindBy(xpath = "//button[@type='button' and @data-qa='accept-cta']")
     public WebElement acceptCookies;
 
-    @FindBy(id = "forceQueryPersistanceID")
+    @FindBy(xpath = "//input[@data-qa='search-bar-input']")
     public WebElement searchBar;
 
     @FindBy(xpath = "//a[@data-test='icon-avatar']")
